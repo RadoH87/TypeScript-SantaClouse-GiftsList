@@ -1,13 +1,13 @@
-const express = require("express");
-require("express-async-errors");
-const methodOverride = require("method-override");
-const { engine } = require("express-handlebars");
-const { handleError } = require("./utils/errors");
-const { homeRouter } = require("./routers/home");
-const { childRouter } = require("./routers/child");
-const { giftRouter } = require("./routers/gift");
-require("./utils/db");
-const { handlebarsHelpers } = require("./utils/handlebars-helpers");
+import * as express from "express";
+import "express-async-errors";
+import * as methodOverride from "method-override";
+import { engine } from "express-handlebars";
+import { handleError } from "./utils/errors";
+import { homeRouter } from "./routers/home";
+import { childRouter } from "./routers/child";
+import { giftRouter } from "./routers/gift";
+import { handlebarsHelpers } from "./utils/handlebars-helpers";
+import "./utils/db";
 
 const app = express();
 
@@ -18,7 +18,6 @@ app.use(
   })
 );
 app.use(express.static("public"));
-// app.use(express.json()); // Content-type: application/json
 app.engine(
   ".hbs",
   engine({
@@ -33,7 +32,6 @@ app.use("/child", childRouter);
 app.use("/gift", giftRouter);
 
 app.use(handleError);
-
 app.listen(3000, "0.0.0.0", () => {
   console.log("Listening on http://localhost:3000");
 });
