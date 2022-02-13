@@ -1,7 +1,3 @@
-const handlebarsHelpers = {
-    equals: (a, b) => a === b,
-};
-
-module.exports = {
-    handlebarsHelpers,
+export const handlebarsHelpers = {
+  equals: (a: any, b: any): boolean => a === b,
 };
