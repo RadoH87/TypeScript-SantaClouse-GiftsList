@@ -14,7 +14,6 @@ export class ChildRecord {
       throw new ValidationError("Name must be at least 25 characters");
     }
   }
-
   async insert(): Promise<string> {
     if (!this.id) {
       this.id = uuid();
